@@ -165,5 +165,167 @@ O(n)
 and the big O(n) means the execution of complexity related to the time and space move/increases related with the increase of the input size.
 
 # Operations of Insertion in Singly Linked List:
+Some of the important operations related to insertion are:
+. inserting at the beginning,
+. inserting at the end,
+. inserting in the middle,
+. inserting at the Beginning
 
+for example:
+first:
+5 -> 10 -> 20
+and after inserting number 15, then it becomes:
+5 -> 10 -> 15 -> 20
+
+and this simple inserting work happens as:
+1. creating a new node,
+2. then after this that new.next is used to point to the head,
+3. and this is how the update of the head is completed
+
+- code example:
+def insert(self, data):
+  new = Node(data)
+  new.next = self.head
+  self.head = new
+
+and according to this example the time complexity is O(1) which simply means the time consumption is going to be constant regardless the increase of the input size.
+
+- Inserting at the end:
+for example:
+5 -> 10 -> 15
+then after inserting number 20 at the end:
+5 -> 10 -> 15 -> 20
+
+- code example:
+def end(self, data):
+  new = Node(data)
+    if self.head is None:
+      self.head = new
+      return
+
+    current = self.head
+    while current.next:
+      current = current.next
+    current.next = new
+
+now the time complexity for this example is O(n) which means the time consumption is going to be increased as the size of the input increases.
+
+- Inserting after a node:
+for example:
+5 -> 10 -> 20
+now inserting the number 15 after the number 10.
+5 -> 10 -> 15 -> 20
+
+- how this is happening by logic?
+new.next = current.next
+current.next = new
+
+# Deletion Operation:
+deleting a node, now for this the example is:
+5 -> 10 -> 15 -> 20
+now deleting the number 15 so it becomes like:
+5 -> 10 -> 20
+
+- how this is done?
+
+1. first finding of the previous node is done,
+2. then the changing of the pointer is done, and then this happens,
+10.next = 20
+
+code example:
+def delete(self, check):
+  current = self.head
+  previous = None
+
+    while current:
+      if current.data == check:
+        if previous:
+          previous.next = current.next
+        else:
+          self.head = current.next
+        return
+
+        previous = current
+        current = current.next
+
+Key Note here is:
+In linked lists thefast indexing is compromised so that the fast insertion can be done.
+
+
+## Doubly Linked List:
+now the second type of linked lists which is doubly linked list, now in it the each node has three components:
+. data
+. next pointer
+. previous pointer
+
+the structure for this would look like:
+None <- 10 -> 20 -> 30 -> None
+           <-    <-
+
+- advantages of doubly linked list:
+
+. It helps to traverse in the forward and backward direction,
+. It also helps in the process of easier deletion 
+
+- Reference of the node structure:
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+        self.prev = None
+
+- now in this above given example structure is like:
+Node1
+data = 5
+next -> Node2
+prev -> None
+
+# Insertion Operations in Doubly Linked List:
+- Inserting at the beginning:
+new.next = head
+head.prev = new
+head = new
+
+# The Concept of Fast and Slow Pointer Pattern:
+Now this is one of the most important concept in linked lists and commonly it is also called as (Tortoise and the Hare algorithm).
+This algorithm was invented by the Robert W. Floyd and his main idea was about -> Use of two pointers:
+
+. slow -> moves 1 step
+. fast -> moves 2 steps
+
+- example for the cycle detection of this process is:
+1 -> 2 -> 3 -> 4 -> 5
+          |     |
+          <- <- <-
+
+now using this approach the list forms a loop and compared to this in the normal approach of traversal was used then the list would have been infinite, so this is the key significance of this approach.
+
+- The algorithm example for this approach will look like:
+slow = head
+fast = head
+while fast and fast.next:
+  slow = slow.next
+  fast = fast.next.next
+
+    if slow == fast:
+      cycle exists
+
+now according to this example algorithm structure If there exists a cycle, then the fast pointer will lap the slow pointer, here meaning of lapping means bcz one pointer is fast and the other is slow then within in hte same running cycle, the fast would complete its work and then again it will catch up the slow pointer from behind. so this approach is very useful and efficient.
+
+- code example:
+
+def cycle(head):
+  slow = head
+  fast = head
+    while fast and fast.next:
+      slow = slow.next
+      fast = fast.next.next
+
+        if slow == fast:
+          return True
+    return False
+
+. now for this example operation the time complexity -> O(n), which is inc. in time consumption with the inc. in the input size.
+. and the space complexity for this operation is -> O(1), which is the time consumption of the operation doesnt depend on the input size.
 
