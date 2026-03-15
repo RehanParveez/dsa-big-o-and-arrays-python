@@ -329,3 +329,81 @@ def cycle(head):
 . now for this example operation the time complexity -> O(n), which is inc. in time consumption with the inc. in the input size.
 . and the space complexity for this operation is -> O(1), which is the time consumption of the operation doesnt depend on the input size.
 
+
+# Finding Middle Node with the use of Fast and Slow pattern:
+so now lets understand the use of fast and slow pattern in case of finding the middle node.
+
+- for example:
+1 -> 2 -> 3 -> 4 -> 5
+
+- use of algorithm:
+
+slow = head
+fast = head
+while fast and fast.next:
+  slow = slow.next
+  fast = fast.next.next
+When loop ends:
+slow = middle node
+
+# Example of Reversing a Linked List:
+10 -> 11 -> 12 -> 13
+13 -> 12 -> 11 -> 10
+
+- use of algorithm:
+prev = None
+current = head
+
+- code example:
+
+def reverse(head):
+  prev = None
+  current = head
+
+  while current:
+    nxt = current.next
+    current.next = prev
+    prev = current
+    current = nxt
+  return prev
+
+- now according to this code first of all the algorithm is using two pointers:
+. slow pointer
+. fast pointer
+
+now both of these pointers start from the head -> which is considered as the first node of the given linked list.
+
+- example of list:
+10 -> 11 -> 12 -> 13 -> 14
+- now in the beginning:
+slow = 10
+fast = 10
+
+- next when the loop runs two main things will happen:
+1. slow pointer will only move one step as:
+slow = slow.next 
+- this means it will move only to the next node.
+
+2. according to the point 2 the fast pointer will move the two steps as:
+fast = fast.next.next
+- now here the point is it skip the one node and will reach the next one present. so this whole process shows like when the slow pointer is moving at normal speed through the given list then at that point the speed of fast pointer is two times the speed as compared to the slow one.
+
+- now then when the traversal happens:
+. the fast pointer will reach the end of the list quickly,
+. and as compared to this the slow pointer would only have covered half of the distance.
+
+so because of all of this,
+. when the fast pointer will reach the end then at that point of time the slow will be present at the middle of the list.
+
+# Examples of Real World Use Cases:
+The use of linked lists is done in many systems like.
+. Browser history,
+. Back / Forward movement,
+. Undo operations,
+. Text editors,
+. Music playlist,
+. Next / previous song,
+. Hash Tables,
+. Collision handling -> with the use of chaining.
+
+- and in all these scenarios the use of doubly linked list + HashMap.
