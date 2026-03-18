@@ -488,43 +488,173 @@
 #   res = res.next
   
 ## 3
+# class Node:
+#   def __init__(self, data):
+#     self.data = data
+#     self.next = None
+
+# def reverse(head):
+#   fake = Node(0)
+#   fake.next = head
+#   prev = fake
+  
+#   while prev.next and prev.next.next:
+#     first = prev.next
+#     second = first.next
+#     first.next = second.next
+#     second.next = first
+#     prev.next = second
+    
+#     prev = first
+#   return fake.next
+
+# head = Node(2)
+# head.next = Node(3)
+# head.next.next = Node(4)
+# head.next.next.next = Node(5)
+# head.next.next.next.next = Node(6)
+
+# res = reverse(head)
+# while res:
+#  print(res.data)
+#  res = res.next
+
+
+## Q: Problem: Remove Nth Node From End
+## 1
+# class Node:
+#   def __init__(self, data):
+#     self.data = data
+#     self.next = None
+
+# def remove(head):
+#   count = 0
+#   curr = head
+#   while curr:
+#     curr = curr.next
+#     count += 1
+    
+#   curr = head
+#   for i in range(curr - 1):
+#     curr[i] = curr.next
+#   return head
+
+# head = Node(5)
+# head.next = Node(6)
+# head.next.next = Node(7)
+# head.next.next.next = Node(8)
+# head.next.next.next.next = Node(9)
+# head.next.next.next.next.next = Node(10)
+# res = remove(head, 3)
+
+# while res:
+#  print(res.data)
+#  res = res.next
+
+## 2
+# class Node:
+#   def __init__(self, data):
+#     self.data = data
+#     self.next = None
+
+# def remove(head, n):
+#   count = 0
+#   curr = head
+#   while curr:
+#     count += 1
+#     curr = curr.next
+  
+#   pos = count - n
+#   curr = head
+#   for i in range(pos - 1):
+#     curr[i] = curr.next
+  
+#   curr.next = curr.next.next
+#   return head
+
+# head = Node(5)
+# head.next = Node(6)
+# head.next.next = Node(7)
+# head.next.next.next = Node(8)
+# head.next.next.next.next = Node(9)
+# head.next.next.next.next.next = Node(10)
+# res = remove(head, 3)
+
+# while res:
+#  print(res.data)
+#  res = res.next
+
+## 3
+# class Node:
+#   def __init__(self, data):
+#    self.data = data
+#    self.next = None
+
+# def remove(head, n):
+#   fake = Node(0)
+#   fake.next = head
+  
+#   fast = fake
+#   slow = fake
+#   for _ in range(n):
+#     fast = fast.next
+  
+#   while fast.next:
+#     fast = fast.next
+#     slow = slow.next
+#   slow.next = slow.next.next
+#   return fake.next
+
+# head = Node(5)
+# head.next = Node(6)
+# head.next.next = Node(7)
+# head.next.next.next = Node(8)
+# head.next.next.next.next = Node(9)
+# head.next.next.next.next.next = Node(10)
+# res = remove(head, 3)
+
+# while res:
+#  print(res.data)
+#  res = res.next
+
+
+ ## Q: Problem: Check if Linked List is Palindrome
+ ## 1
 class Node:
   def __init__(self, data):
     self.data = data
     self.next = None
 
-def reverse(head):
-  fake = Node(0)
-  fake.next = head
-  prev = fake
+def palindrome(head):
+  list = []
+  curr = head
+  while curr:
+    curr = curr.next
+    list.append(curr.data)
   
-  while prev.next and prev.next.next:
-    first = prev.next
-    second = first.next
-    first.next = second.next
-    second.next = first
-    prev.next = second
-    
-    prev = first
-  return fake.next
-
-head = Node(2)
-head.next = Node(3)
-head.next.next = Node(4)
-head.next.next.next = Node(5)
-head.next.next.next.next = Node(6)
-
-res = reverse(head)
-while res:
- print(res.data)
- res = res.next
-
-
+  left = 0
+  right = len(list)
   
+  while left < right:
+    if list[left] != list[right]:
+      return False
+  return True
+
+head = Node(1)
+head.next = Node(4)
+head.next.next = Node(1)
+head.next.next.next = Node(1)
+head.next.next.next.next = Node(4)
+head.next.next.next.next.next = Node(1)
+
+print(palindrome(head))
   
     
-
-
-      
-        
   
+     
+  
+  
+
+ 
+
+ 
