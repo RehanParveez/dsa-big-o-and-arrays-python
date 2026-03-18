@@ -620,34 +620,103 @@
 
  ## Q: Problem: Check if Linked List is Palindrome
  ## 1
-class Node:
-  def __init__(self, data):
-    self.data = data
-    self.next = None
+# class Node:
+#   def __init__(self, data):
+#     self.data = data
+#     self.next = None
 
-def palindrome(head):
-  list = []
-  curr = head
-  while curr:
-    curr = curr.next
-    list.append(curr.data)
+# def palindrome(head):
+#   list = []
+#   curr = head
+#   while curr:
+#     curr = curr.next
+#     list.append(curr.data)
   
-  left = 0
-  right = len(list)
+#   left = 0
+#   right = len(list)
   
-  while left < right:
-    if list[left] != list[right]:
-      return False
-  return True
+#   while left < right:
+#     if list[left] != list[right]:
+#       return False
+#   return True
 
-head = Node(1)
-head.next = Node(4)
-head.next.next = Node(1)
-head.next.next.next = Node(1)
-head.next.next.next.next = Node(4)
-head.next.next.next.next.next = Node(1)
+# head = Node(1)
+# head.next = Node(4)
+# head.next.next = Node(1)
+# head.next.next.next = Node(1)
+# head.next.next.next.next = Node(4)
+# head.next.next.next.next.next = Node(1)
 
-print(palindrome(head))
+# print(palindrome(head))
+
+## 2
+# def palindrome(head):
+#   list = []
+#   curr = head
+#   while curr:
+#     curr = curr.next
+#     list.append(curr.data)
+    
+#   left = 0
+#   right = len(list) - 1
+#   while left < right:
+#     if list[left] != list[right]:
+#       return False
+#     left += 1
+#   return True
+
+# head = Node(1)
+# head.next = Node(4)
+# head.next.next = Node(1)
+# head.next.next.next = Node(1)
+# head.next.next.next.next = Node(4)
+# head.next.next.next.next.next = Node(1)
+
+# print(palindrome(head))
+
+## 3
+# class Node:
+#   def __init__(self, data):
+#     self.data = data
+#     self.next = None
+
+# def palindrome(head):
+#   slow = head
+#   fast = head
+  
+#   while fast and fast.next:
+#     slow = slow.next
+#     fast = fast.next.next
+  
+#   prev = None
+#   curr = slow
+  
+#   while curr:
+#     new = curr.next
+#     curr.next = prev
+#     prev = curr
+#     curr = new
+  
+#   left = head
+#   right = prev
+  
+#   while right:
+#     if left.data != right.data:
+#       return False
+#     left = left.next
+#     right = right.next
+#   return True
+
+# head = Node(1)
+# head.next = Node(4)
+# head.next.next = Node(1)
+# head.next.next.next = Node(1)
+# head.next.next.next.next = Node(4)
+# head.next.next.next.next.next = Node(1)
+
+# print(palindrome(head))
+  
+  
   
     
   
