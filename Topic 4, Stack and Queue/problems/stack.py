@@ -113,16 +113,54 @@
 # print(reverse('traverse'))
 
 ## 3
-def reverse(str):
-  check = []
+# def reverse(str):
+#   check = []
   
-  for s in str:
-    check.append(s)
-  store = ''
-  while len(check) > 0:
-    s = check.pop()
-    store = store + s
-  return store
+#   for s in str:
+#     check.append(s)
+#   store = ''
+#   while len(check) > 0:
+#     s = check.pop()
+#     store = store + s
+#   return store
 
-print(reverse('reverse'))
-print(reverse('traverse'))
+# print(reverse('reverse'))
+# print(reverse('traverse'))
+
+
+## Q: Problem: Find Next Greater Element
+## 1
+# def greater(num):
+#   res = []
+#   for n in range(len(num)):
+#     for n2 in range(len(num)):
+#       if num[n2] > num[n]:
+#         num = num[n2]
+#     res.append(num)
+#   return res
+
+# print(greater([4, 3, 4, 6, 5])) 
+# print(greater([6, 5, 4, 3, 2, 1])) 
+
+## 2
+# def greater(num):
+#   check = []
+#   for n in range(len(num)):
+#     check.append(num[n])
+#   for n in range(len(num)):
+#     if len(check) > 0:
+#       n2 = check
+#       if num[n] < num[n2]:
+#         n = num[n2]
+#   return check
+
+# print(greater([4, 3, 4, 6, 5])) 
+# print(greater([6, 5, 4, 3, 2, 1])) 
+
+
+
+
+
+
+
+
